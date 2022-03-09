@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabular Datasets &#8212; Apache Arrow v8.0.0.dev138+gb98f3a443.d20220225</title>
+    <title>Tabular Datasets &#8212; Apache Arrow v8.0.0.dev203+ge085f653b.d20220309</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -25,9 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     
@@ -37,6 +35,7 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <link rel="canonical" href="https://arrow.apache.org/docs/python/dataset.html" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -434,6 +433,11 @@ function checkPageExistsAndRedirect(event) {
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../java/install.html">
+     Installing Java Modules
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../java/vector.html">
      ValueVector
@@ -3576,6 +3580,31 @@ function checkPageExistsAndRedirect(event) {
          pyarrow.parquet.write_to_dataset
         </a>
        </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/pyarrow.parquet_encryption.CryptoFactory.html">
+         pyarrow.parquet_encryption.CryptoFactory
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/pyarrow.parquet_encryption.KmsClient.html">
+         pyarrow.parquet_encryption.KmsClient
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/pyarrow.parquet_encryption.KmsConnectionConfig.html">
+         pyarrow.parquet_encryption.KmsConnectionConfig
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/pyarrow.parquet_encryption.EncryptionConfiguration.html">
+         pyarrow.parquet_encryption.EncryptionConfiguration
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/pyarrow.parquet_encryption.DecryptionConfiguration.html">
+         pyarrow.parquet_encryption.DecryptionConfiguration
+        </a>
+       </li>
       </ul>
      </li>
      <li class="toctree-l3 has-children">
@@ -3855,6 +3884,16 @@ function checkPageExistsAndRedirect(event) {
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="generated/pyarrow.io_thread_count.html">
+         pyarrow.io_thread_count
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="generated/pyarrow.set_io_thread_count.html">
+         pyarrow.set_io_thread_count
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="generated/pyarrow.get_include.html">
          pyarrow.get_include
         </a>
@@ -3981,6 +4020,11 @@ function checkPageExistsAndRedirect(event) {
    Contributing to Apache Arrow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../developers/bug_reports.html">
+   Report bugs and propose features
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../developers/guide/index.html">
    New Contributor’s Guide
@@ -4034,6 +4078,11 @@ function checkPageExistsAndRedirect(event) {
      <li class="toctree-l3">
       <a class="reference internal" href="../developers/guide/step_by_step/testing.html">
        Testing 🧪
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../developers/guide/step_by_step/styling.html">
+       Styling 😎
       </a>
      </li>
      <li class="toctree-l3">
@@ -4396,7 +4445,7 @@ can pass it the path to the directory containing the data files:</p>
 <span class="gp">In [12]: </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">dataset</span><span class="p">(</span><span class="n">base</span> <span class="o">/</span> <span class="s2">&quot;parquet_dataset&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;parquet&quot;</span><span class="p">)</span>
 
 <span class="gp">In [13]: </span><span class="n">dataset</span>
-<span class="gh">Out[13]: </span><span class="go">&lt;pyarrow._dataset.FileSystemDataset at 0x1298187f0&gt;</span>
+<span class="gh">Out[13]: </span><span class="go">&lt;pyarrow._dataset.FileSystemDataset at 0x2874c3db0&gt;</span>
 </pre></div>
 </div>
 <p>In addition to searching a base directory, <a class="reference internal" href="generated/pyarrow.dataset.Dataset.html#pyarrow.dataset.dataset" title="pyarrow.dataset.dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">dataset()</span></code></a> accepts a path to a
@@ -4405,8 +4454,8 @@ single file or a list of file paths.</p>
 needed, it only crawls the directory to find all the files:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">files</span>
 <span class="gh">Out[14]: </span><span class="go"></span>
-<span class="go">[&#39;/var/folders/gw/q7wqd4tx18n_9t4kbkd0bj1m0000gn/T/pyarrow-q9gvfuhx/parquet_dataset/data1.parquet&#39;,</span>
-<span class="go"> &#39;/var/folders/gw/q7wqd4tx18n_9t4kbkd0bj1m0000gn/T/pyarrow-q9gvfuhx/parquet_dataset/data2.parquet&#39;]</span>
+<span class="go">[&#39;/var/folders/gw/q7wqd4tx18n_9t4kbkd0bj1m0000gn/T/pyarrow-c9ld38br/parquet_dataset/data1.parquet&#39;,</span>
+<span class="go"> &#39;/var/folders/gw/q7wqd4tx18n_9t4kbkd0bj1m0000gn/T/pyarrow-c9ld38br/parquet_dataset/data2.parquet&#39;]</span>
 </pre></div>
 </div>
 <p>… and infers the dataset’s schema (by default from the first file):</p>
@@ -4427,23 +4476,23 @@ this can require a lot of memory, see below on filtering / iterative loading):</
 <span class="go">c: int64</span>
 <span class="gt">----</span>
 <span class="ne">a</span>: [[0,1,2,3,4],[5,6,7,8,9]]
-<span class="ne">b</span>: [[-0.9484999853210944,0.3386663966755962,-1.8299259283511249,-0.729767785902705,0.03786321903558689],[0.9629434600333363,0.6125473419172713,1.4886194584736165,-0.5284616934544635,0.2427581170086222]]
+<span class="ne">b</span>: [[0.578535775936506,1.3808202636697153,0.2700371360958625,0.053274277520739155,0.2963426796305189],[1.573149125416833,-0.5498699883125617,0.25814126179214336,0.43114898981190963,-1.0280986218898958]]
 <span class="ne">c</span>: [[1,2,1,2,1],[2,1,2,1,2]]
 
 <span class="c1"># converting to pandas to see the contents of the scanned table</span>
 <span class="gp">In [17]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 <span class="gh">Out[17]: </span><span class="go"></span>
 <span class="go">   a         b  c</span>
-<span class="go">0  0 -0.948500  1</span>
-<span class="go">1  1  0.338666  2</span>
-<span class="go">2  2 -1.829926  1</span>
-<span class="go">3  3 -0.729768  2</span>
-<span class="go">4  4  0.037863  1</span>
-<span class="go">5  5  0.962943  2</span>
-<span class="go">6  6  0.612547  1</span>
-<span class="go">7  7  1.488619  2</span>
-<span class="go">8  8 -0.528462  1</span>
-<span class="go">9  9  0.242758  2</span>
+<span class="go">0  0  0.578536  1</span>
+<span class="go">1  1  1.380820  2</span>
+<span class="go">2  2  0.270037  1</span>
+<span class="go">3  3  0.053274  2</span>
+<span class="go">4  4  0.296343  1</span>
+<span class="go">5  5  1.573149  2</span>
+<span class="go">6  6 -0.549870  1</span>
+<span class="go">7  7  0.258141  2</span>
+<span class="go">8  8  0.431149  1</span>
+<span class="go">9  9 -1.028099  2</span>
 </pre></div>
 </div>
 </div>
@@ -4466,11 +4515,11 @@ supported; more formats are planned in the future.</p>
 <span class="gp">In [21]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[21]: </span><span class="go"></span>
 <span class="go">   a         b  c</span>
-<span class="go">0  0 -0.948500  1</span>
-<span class="go">1  1  0.338666  2</span>
-<span class="go">2  2 -1.829926  1</span>
-<span class="go">3  3 -0.729768  2</span>
-<span class="go">4  4  0.037863  1</span>
+<span class="go">0  0  0.578536  1</span>
+<span class="go">1  1  1.380820  2</span>
+<span class="go">2  2  0.270037  1</span>
+<span class="go">3  3  0.053274  2</span>
+<span class="go">4  4  0.296343  1</span>
 </pre></div>
 </div>
 </div>
@@ -4502,16 +4551,16 @@ supported; more formats are planned in the future.</p>
 <span class="gp">In [23]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 <span class="gh">Out[23]: </span><span class="go"></span>
 <span class="go">   a         b</span>
-<span class="go">0  0 -0.948500</span>
-<span class="go">1  1  0.338666</span>
-<span class="go">2  2 -1.829926</span>
-<span class="go">3  3 -0.729768</span>
-<span class="go">4  4  0.037863</span>
-<span class="go">5  5  0.962943</span>
-<span class="go">6  6  0.612547</span>
-<span class="go">7  7  1.488619</span>
-<span class="go">8  8 -0.528462</span>
-<span class="go">9  9  0.242758</span>
+<span class="go">0  0  0.578536</span>
+<span class="go">1  1  1.380820</span>
+<span class="go">2  2  0.270037</span>
+<span class="go">3  3  0.053274</span>
+<span class="go">4  4  0.296343</span>
+<span class="go">5  5  1.573149</span>
+<span class="go">6  6 -0.549870</span>
+<span class="go">7  7  0.258141</span>
+<span class="go">8  8  0.431149</span>
+<span class="go">9  9 -1.028099</span>
 </pre></div>
 </div>
 <p>With the <code class="docutils literal notranslate"><span class="pre">filter</span></code> keyword, rows which do not match the filter predicate will
@@ -4520,18 +4569,18 @@ not be included in the returned table. The keyword expects a boolean
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 <span class="gh">Out[24]: </span><span class="go"></span>
 <span class="go">   a         b  c</span>
-<span class="go">0  7  1.488619  2</span>
-<span class="go">1  8 -0.528462  1</span>
-<span class="go">2  9  0.242758  2</span>
+<span class="go">0  7  0.258141  2</span>
+<span class="go">1  8  0.431149  1</span>
+<span class="go">2  9 -1.028099  2</span>
 
 <span class="gp">In [25]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 <span class="gh">Out[25]: </span><span class="go"></span>
 <span class="go">   a         b  c</span>
-<span class="go">0  1  0.338666  2</span>
-<span class="go">1  3 -0.729768  2</span>
-<span class="go">2  5  0.962943  2</span>
-<span class="go">3  7  1.488619  2</span>
-<span class="go">4  9  0.242758  2</span>
+<span class="go">0  1  1.380820  2</span>
+<span class="go">1  3  0.053274  2</span>
+<span class="go">2  5  1.573149  2</span>
+<span class="go">3  7  0.258141  2</span>
+<span class="go">4  9 -1.028099  2</span>
 </pre></div>
 </div>
 <p>The easiest way to construct those <a class="reference internal" href="generated/pyarrow.dataset.Expression.html#pyarrow.dataset.Expression" title="pyarrow.dataset.Expression"><code class="xref py py-class docutils literal notranslate"><span class="pre">Expression</span></code></a> objects is by using the
@@ -4576,11 +4625,11 @@ values:</p>
 <span class="gp">In [30]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[30]: </span><span class="go"></span>
 <span class="go">   a_renamed  b_as_float32    c_1</span>
-<span class="go">0          0     -0.948500   True</span>
-<span class="go">1          1      0.338666  False</span>
-<span class="go">2          2     -1.829926   True</span>
-<span class="go">3          3     -0.729768  False</span>
-<span class="go">4          4      0.037863   True</span>
+<span class="go">0          0      0.578536   True</span>
+<span class="go">1          1      1.380820  False</span>
+<span class="go">2          2      0.270037   True</span>
+<span class="go">3          3      0.053274  False</span>
+<span class="go">4          4      0.296343   True</span>
 </pre></div>
 </div>
 <p>The dictionary also determines the column selection (only the keys in the
@@ -4594,11 +4643,11 @@ build up the dictionary from the dataset schema:</p>
 <span class="gp">In [33]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">projection</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[33]: </span><span class="go"></span>
 <span class="go">   a         b  c  b_large</span>
-<span class="go">0  0 -0.948500  1    False</span>
-<span class="go">1  1  0.338666  2    False</span>
-<span class="go">2  2 -1.829926  1    False</span>
-<span class="go">3  3 -0.729768  2    False</span>
-<span class="go">4  4  0.037863  1    False</span>
+<span class="go">0  0  0.578536  1    False</span>
+<span class="go">1  1  1.380820  2     True</span>
+<span class="go">2  2  0.270037  1    False</span>
+<span class="go">3  3  0.053274  2    False</span>
+<span class="go">4  4  0.296343  1    False</span>
 </pre></div>
 </div>
 </div>
@@ -4651,8 +4700,8 @@ should use a hive-like partitioning scheme with the <code class="docutils litera
 
 <span class="gp">In [37]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">files</span>
 <span class="gh">Out[37]: </span><span class="go"></span>
-<span class="go">[&#39;parquet_dataset_partitioned/part=a/9b52c4a04c61498b9cd91a77e81216bd.parquet&#39;,</span>
-<span class="go"> &#39;parquet_dataset_partitioned/part=b/fbf6b06d5381459ba42fe7dda703b1bb.parquet&#39;]</span>
+<span class="go">[&#39;parquet_dataset_partitioned/part=a/bf7dda09111d4625bc773982e8f5fa59.parquet&#39;,</span>
+<span class="go"> &#39;parquet_dataset_partitioned/part=b/3205365227834ae0b3cdcf1ac8a88437.parquet&#39;]</span>
 </pre></div>
 </div>
 <p>Although the partition fields are not included in the actual Parquet files,
@@ -4660,9 +4709,9 @@ they will be added back to the resulting table when scanning this dataset:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="gh">Out[38]: </span><span class="go"></span>
 <span class="go">   a         b  c part</span>
-<span class="go">0  0 -0.467827  1    a</span>
-<span class="go">1  1 -0.377815  2    a</span>
-<span class="go">2  2  0.918233  1    a</span>
+<span class="go">0  0 -0.501806  1    a</span>
+<span class="go">1  1 -1.313451  2    a</span>
+<span class="go">2  2  0.292920  1    a</span>
 </pre></div>
 </div>
 <p>We can now filter on the partition keys, which avoids loading files
@@ -4670,11 +4719,11 @@ altogether if they do not match the filter:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s2">&quot;part&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 <span class="gh">Out[39]: </span><span class="go"></span>
 <span class="go">   a         b  c part</span>
-<span class="go">0  5 -0.463900  2    b</span>
-<span class="go">1  6  1.765788  1    b</span>
-<span class="go">2  7  1.231271  2    b</span>
-<span class="go">3  8 -0.108923  1    b</span>
-<span class="go">4  9  0.264016  2    b</span>
+<span class="go">0  5  1.063645  2    b</span>
+<span class="go">1  6  2.378263  1    b</span>
+<span class="go">2  7 -0.758839  2    b</span>
+<span class="go">3  8 -1.175559  1    b</span>
+<span class="go">4  9  0.553462  2    b</span>
 </pre></div>
 </div>
 <div class="section" id="different-partitioning-schemes">
@@ -4808,19 +4857,19 @@ is materialized as columns when reading the data and can be used for filtering:<
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 <span class="gh">Out[47]: </span><span class="go"></span>
 <span class="go">   year  col1      col2</span>
-<span class="go">0  2018     0 -0.942553</span>
-<span class="go">1  2018     1 -2.316717</span>
-<span class="go">2  2018     2  0.191838</span>
-<span class="go">3  2019     0 -0.942553</span>
-<span class="go">4  2019     1 -2.316717</span>
-<span class="go">5  2019     2  0.191838</span>
+<span class="go">0  2018     0 -1.229460</span>
+<span class="go">1  2018     1  0.128185</span>
+<span class="go">2  2018     2 -0.715439</span>
+<span class="go">3  2019     0 -1.229460</span>
+<span class="go">4  2019     1  0.128185</span>
+<span class="go">5  2019     2 -0.715439</span>
 
 <span class="gp">In [48]: </span><span class="n">dataset</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2019</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 <span class="gh">Out[48]: </span><span class="go"></span>
 <span class="go">   year  col1      col2</span>
-<span class="go">0  2019     0 -0.942553</span>
-<span class="go">1  2019     1 -2.316717</span>
-<span class="go">2  2019     2  0.191838</span>
+<span class="go">0  2019     0 -1.229460</span>
+<span class="go">1  2019     1  0.128185</span>
+<span class="go">2  2019     2 -0.715439</span>
 </pre></div>
 </div>
 <p>Another benefit of manually listing the files is that the order of the files
@@ -5008,16 +5057,16 @@ to supply a visitor that will be called as each file is created:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">ds</span><span class="o">.</span><span class="n">write_dataset</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="s2">&quot;dataset_visited&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;parquet&quot;</span><span class="p">,</span> <span class="n">partitioning</span><span class="o">=</span><span class="n">part</span><span class="p">,</span>
 <span class="gp">   ....: </span>                 <span class="n">file_visitor</span><span class="o">=</span><span class="n">file_visitor</span><span class="p">)</span>
 <span class="gp">   ....: </span>
-<span class="go">path=dataset_visited/c=1/part-0.parquet</span>
-<span class="go">metadata=&lt;pyarrow._parquet.FileMetaData object at 0x177534ea0&gt;</span>
+<span class="go">path=dataset_visited/c=2/part-0.parquet</span>
+<span class="go">metadata=&lt;pyarrow._parquet.FileMetaData object at 0x287b0c1d0&gt;</span>
 <span class="go">  created_by: parquet-cpp-arrow version 8.0.0-SNAPSHOT</span>
 <span class="go">  num_columns: 2</span>
 <span class="go">  num_rows: 5</span>
 <span class="go">  num_row_groups: 1</span>
 <span class="go">  format_version: 1.0</span>
 <span class="go">  serialized_size: 0</span>
-<span class="go">path=dataset_visited/c=2/part-0.parquet</span>
-<span class="go">metadata=&lt;pyarrow._parquet.FileMetaData object at 0x1781eba40&gt;</span>
+<span class="go">path=dataset_visited/c=1/part-0.parquet</span>
+<span class="go">metadata=&lt;pyarrow._parquet.FileMetaData object at 0x287b0c1d0&gt;</span>
 <span class="go">  created_by: parquet-cpp-arrow version 8.0.0-SNAPSHOT</span>
 <span class="go">  num_columns: 2</span>
 <span class="go">  num_rows: 5</span>

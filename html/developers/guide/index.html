@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Contributor’s Guide &#8212; Apache Arrow v8.0.0.dev138+gb98f3a443.d20220225</title>
+    <title>New Contributor’s Guide &#8212; Apache Arrow v8.0.0.dev203+ge085f653b.d20220309</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -25,9 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     
@@ -37,12 +35,13 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <link rel="canonical" href="https://arrow.apache.org/docs/developers/guide/index.html" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Architectural Overview" href="architectural_overview.html" />
-    <link rel="prev" title="Contributing to Apache Arrow" href="../contributing.html" />
+    <link rel="prev" title="Report bugs and propose features" href="../bug_reports.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -434,6 +433,11 @@ function checkPageExistsAndRedirect(event) {
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../java/install.html">
+     Installing Java Modules
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../java/vector.html">
      ValueVector
@@ -3576,6 +3580,31 @@ function checkPageExistsAndRedirect(event) {
          pyarrow.parquet.write_to_dataset
         </a>
        </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python/generated/pyarrow.parquet_encryption.CryptoFactory.html">
+         pyarrow.parquet_encryption.CryptoFactory
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python/generated/pyarrow.parquet_encryption.KmsClient.html">
+         pyarrow.parquet_encryption.KmsClient
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python/generated/pyarrow.parquet_encryption.KmsConnectionConfig.html">
+         pyarrow.parquet_encryption.KmsConnectionConfig
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python/generated/pyarrow.parquet_encryption.EncryptionConfiguration.html">
+         pyarrow.parquet_encryption.EncryptionConfiguration
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python/generated/pyarrow.parquet_encryption.DecryptionConfiguration.html">
+         pyarrow.parquet_encryption.DecryptionConfiguration
+        </a>
+       </li>
       </ul>
      </li>
      <li class="toctree-l3 has-children">
@@ -3855,6 +3884,16 @@ function checkPageExistsAndRedirect(event) {
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="../../python/generated/pyarrow.io_thread_count.html">
+         pyarrow.io_thread_count
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python/generated/pyarrow.set_io_thread_count.html">
+         pyarrow.set_io_thread_count
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="../../python/generated/pyarrow.get_include.html">
          pyarrow.get_include
         </a>
@@ -3981,6 +4020,11 @@ function checkPageExistsAndRedirect(event) {
    Contributing to Apache Arrow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bug_reports.html">
+   Report bugs and propose features
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    New Contributor’s Guide
@@ -4034,6 +4078,11 @@ function checkPageExistsAndRedirect(event) {
      <li class="toctree-l3">
       <a class="reference internal" href="step_by_step/testing.html">
        Testing 🧪
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="step_by_step/styling.html">
+       Styling 😎
       </a>
      </li>
      <li class="toctree-l3">
@@ -4300,11 +4349,12 @@ you can run the tests from a terminal for Python</p>
 </li>
 <li><p><strong>Find an issue (if needed), create a new branch and work on the problem</strong></p>
 <p><strong>Finding an issue</strong></p>
-<p>You might already have a bug to fix in mind, or a new feature that you want to implement. But if you
-don’t and you need an issue to work on, then you may need help finding it. Read
-through the <a class="reference internal" href="step_by_step/finding_issues.html#finding-issues"><span class="std std-ref">Finding good first issues 🔎</span></a>  section to get some ideas.</p>
+<p>You might already have a bug to fix in mind, or a new feature that you want to
+implement. But if you don’t and you need an issue to work on, then you may need
+help finding it. Read through the <a class="reference internal" href="step_by_step/finding_issues.html#finding-issues"><span class="std std-ref">Finding good first issues 🔎</span></a>  section to get some ideas.</p>
 <p><strong>Finding your way through the project</strong></p>
-<p>The first step when starting a new project is the hardest and so we’ve wrote some guides to help you with this.</p>
+<p>The first step when starting a new project is the hardest and so we’ve
+wrote some guides to help you with this.</p>
 <p>You can start by reading through <a class="reference internal" href="step_by_step/arrow_codebase.html#arrow-codebase"><span class="std std-ref">Working on the Arrow codebase 🧐</span></a> section.</p>
 <p><strong>Communication</strong></p>
 <p>Communication is very important. You may need some help solving problems
@@ -4314,7 +4364,9 @@ know you are working on it and may need some help.</p>
 <p>See possible channels of <a class="reference internal" href="communication.html#communication"><span class="std std-ref">Communication</span></a>.</p>
 </li>
 <li><p><strong>Once you implemented the planned fix or feature, write and run tests for it</strong></p>
-<p>See detailed instructions on how to <a class="reference internal" href="step_by_step/testing.html#testing"><span class="std std-ref">test</span></a>.</p>
+<p>See detailed instructions on how to <a class="reference internal" href="step_by_step/testing.html#testing"><span class="std std-ref">test</span></a>. Also run the linter
+to make sure the code is <a class="reference internal" href="step_by_step/styling.html#styling"><span class="std std-ref">styled</span></a> correctly before proceeding
+to the next step!</p>
 </li>
 <li><p><strong>Push the branch on your fork and create a Pull Request</strong></p>
 <p>See detailed instructions on <a class="reference internal" href="step_by_step/pr_lifecycle.html#create-pr"><span class="std std-ref">Creating a pull request</span></a></p>
@@ -4364,6 +4416,10 @@ one of the <a class="reference internal" href="tutorials/index.html#tutorial-ind
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="step_by_step/testing.html">Testing 🧪</a></li>
+<li class="toctree-l2"><a class="reference internal" href="step_by_step/styling.html">Styling 😎</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="step_by_step/styling.html#pre-commit">Pre-commit</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="step_by_step/pr_lifecycle.html">Lifecycle of a pull request</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="step_by_step/pr_lifecycle.html#creating-a-pull-request">Creating a pull request</a></li>
 <li class="toctree-l3"><a class="reference internal" href="step_by_step/pr_lifecycle.html#reviews-and-merge-of-the-pull-request">Reviews and merge of the pull request</a></li>
@@ -4411,11 +4467,11 @@ one of the <a class="reference internal" href="tutorials/index.html#tutorial-ind
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../contributing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../bug_reports.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Contributing to Apache Arrow</p>
+            <p class="prev-next-title">Report bugs and propose features</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="architectural_overview.html" title="next page">

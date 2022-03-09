@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyarrow.dataset.ParquetFragmentScanOptions &#8212; Apache Arrow v8.0.0.dev138+gb98f3a443.d20220225</title>
+    <title>pyarrow.dataset.ParquetFragmentScanOptions &#8212; Apache Arrow v8.0.0.dev203+ge085f653b.d20220309</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -25,9 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     
@@ -37,6 +35,7 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <link rel="canonical" href="https://arrow.apache.org/docs/python/generated/pyarrow.dataset.ParquetFragmentScanOptions.html" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -434,6 +433,11 @@ function checkPageExistsAndRedirect(event) {
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../java/install.html">
+     Installing Java Modules
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../java/vector.html">
      ValueVector
@@ -900,6 +904,11 @@ function checkPageExistsAndRedirect(event) {
    Contributing to Apache Arrow
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../developers/bug_reports.html">
+   Report bugs and propose features
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../developers/guide/index.html">
    New Contributor’s Guide
@@ -953,6 +962,11 @@ function checkPageExistsAndRedirect(event) {
      <li class="toctree-l3">
       <a class="reference internal" href="../../developers/guide/step_by_step/testing.html">
        Testing 🧪
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../developers/guide/step_by_step/styling.html">
+       Styling 😎
       </a>
      </li>
      <li class="toctree-l3">
@@ -1138,7 +1152,7 @@ function checkPageExistsAndRedirect(event) {
 <h1>pyarrow.dataset.ParquetFragmentScanOptions<a class="headerlink" href="#pyarrow-dataset-parquetfragmentscanoptions" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyarrow.dataset.ParquetFragmentScanOptions">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyarrow.dataset.</span></span><span class="sig-name descname"><span class="pre">ParquetFragmentScanOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bool</span> <span class="pre">use_buffered_stream=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_size=8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool</span> <span class="pre">pre_buffer=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool</span> <span class="pre">enable_parallel_column_conversion=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyarrow.dataset.ParquetFragmentScanOptions" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyarrow.dataset.</span></span><span class="sig-name descname"><span class="pre">ParquetFragmentScanOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bool</span> <span class="pre">use_buffered_stream=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_size=8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool</span> <span class="pre">pre_buffer=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyarrow.dataset.ParquetFragmentScanOptions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pyarrow.dataset.FragmentScanOptions.html#pyarrow.dataset.FragmentScanOptions" title="pyarrow._dataset.FragmentScanOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyarrow._dataset.FragmentScanOptions</span></code></a></p>
 <p>Scan-specific options for Parquet fragments.</p>
 <dl class="field-list">
@@ -1153,11 +1167,6 @@ Disabled by default.</p>
 <dt><strong>pre_buffer</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, default <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>If enabled, pre-buffer the raw Parquet data instead of issuing one
 read per column chunk. This can improve performance on high-latency
 filesystems.</p>
-</dd>
-<dt><strong>enable_parallel_column_conversion</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.10)"><span class="xref std std-ref">bool</span></a>, default <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.10)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>EXPERIMENTAL: Parallelize conversion across columns. This option is
-ignored if a scan is already parallelized across input files to avoid
-thread contention. This option will be removed after support is added
-for simultaneous parallelization across files and columns.</p>
 </dd>
 </dl>
 </dd>
@@ -1192,16 +1201,13 @@ for simultaneous parallelization across files and columns.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyarrow.dataset.ParquetFragmentScanOptions.buffer_size" title="pyarrow.dataset.ParquetFragmentScanOptions.buffer_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">buffer_size</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyarrow.dataset.ParquetFragmentScanOptions.enable_parallel_column_conversion" title="pyarrow.dataset.ParquetFragmentScanOptions.enable_parallel_column_conversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enable_parallel_column_conversion</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyarrow.dataset.ParquetFragmentScanOptions.pre_buffer" title="pyarrow.dataset.ParquetFragmentScanOptions.pre_buffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pre_buffer</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyarrow.dataset.ParquetFragmentScanOptions.pre_buffer" title="pyarrow.dataset.ParquetFragmentScanOptions.pre_buffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pre_buffer</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyarrow.dataset.ParquetFragmentScanOptions.type_name" title="pyarrow.dataset.ParquetFragmentScanOptions.type_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_name</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyarrow.dataset.ParquetFragmentScanOptions.type_name" title="pyarrow.dataset.ParquetFragmentScanOptions.type_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_name</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyarrow.dataset.ParquetFragmentScanOptions.use_buffered_stream" title="pyarrow.dataset.ParquetFragmentScanOptions.use_buffered_stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_buffered_stream</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyarrow.dataset.ParquetFragmentScanOptions.use_buffered_stream" title="pyarrow.dataset.ParquetFragmentScanOptions.use_buffered_stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">use_buffered_stream</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -1209,11 +1215,6 @@ for simultaneous parallelization across files and columns.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyarrow.dataset.ParquetFragmentScanOptions.buffer_size">
 <span class="sig-name descname"><span class="pre">buffer_size</span></span><a class="headerlink" href="#pyarrow.dataset.ParquetFragmentScanOptions.buffer_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pyarrow.dataset.ParquetFragmentScanOptions.enable_parallel_column_conversion">
-<span class="sig-name descname"><span class="pre">enable_parallel_column_conversion</span></span><a class="headerlink" href="#pyarrow.dataset.ParquetFragmentScanOptions.enable_parallel_column_conversion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
