@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Streaming, Serialization, and IPC &#8212; Apache Arrow v8.0.0.dev203+ge085f653b.d20220309</title>
+    <title>Streaming, Serialization, and IPC &#8212; Apache Arrow v8.0.0.dev204+g8088f71c5</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -4127,6 +4127,11 @@ function checkPageExistsAndRedirect(event) {
   </ul>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../developers/advanced.html">
+   Advanced Code Contribution
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../developers/reviewing.html">
    Reviewing contributions
   </a>
@@ -4574,19 +4579,19 @@ Python object:</p>
 
 <span class="gp">In [40]: </span><span class="n">restored_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gh">Out[40]: </span><span class="go"></span>
-<span class="go">array([[-1.19649587, -0.32854094,  0.08859459, ..., -0.697813  ,</span>
-<span class="go">         0.02082179,  0.24551517],</span>
-<span class="go">       [ 0.46059069, -0.3791502 , -1.31683132, ..., -0.5323819 ,</span>
-<span class="go">        -0.38580743,  0.10580662],</span>
-<span class="go">       [ 0.37053305,  0.98688654,  2.45706654, ...,  0.35441522,</span>
-<span class="go">        -0.19551443, -0.15506515],</span>
+<span class="go">array([[ 7.55331622e-02, -1.49607792e+00, -4.89029540e-01, ...,</span>
+<span class="go">         3.40877109e-02,  1.27811274e+00, -6.31528770e-01],</span>
+<span class="go">       [ 1.43340093e-01, -2.62046403e+00,  1.71693367e-01, ...,</span>
+<span class="go">         2.14016229e-02,  3.87044019e-01,  2.96487645e-02],</span>
+<span class="go">       [ 3.72166037e-01, -2.03451407e-01, -1.65336215e-04, ...,</span>
+<span class="go">         3.21958619e-01,  9.50547893e-01,  2.43873580e-01],</span>
 <span class="go">       ...,</span>
-<span class="go">       [-0.80577646, -0.51793366,  0.65574215, ..., -0.10460304,</span>
-<span class="go">        -0.76663089, -0.4782523 ],</span>
-<span class="go">       [-0.04200975,  0.53756513, -1.20628881, ..., -0.73200722,</span>
-<span class="go">         0.28695025, -1.653258  ],</span>
-<span class="go">       [ 0.01993797, -0.30523114, -1.2046693 , ...,  0.61823927,</span>
-<span class="go">         0.34877594, -0.52765709]])</span>
+<span class="go">       [ 1.84670529e+00, -8.63232679e-01, -8.77175188e-01, ...,</span>
+<span class="go">        -1.76814764e+00,  9.87100691e-02,  3.48061654e-01],</span>
+<span class="go">       [-3.78092296e-01,  2.13980419e-01, -1.60044008e+00, ...,</span>
+<span class="go">         1.37289965e+00,  1.41907025e+00, -1.08622091e+00],</span>
+<span class="go">       [-1.71764850e+00, -6.00383171e-01,  5.76612902e-01, ...,</span>
+<span class="go">         1.66090903e+00, -9.05408943e-01, -9.44097087e-01]])</span>
 </pre></div>
 </div>
 <div class="section" id="serializing-custom-data-types">
@@ -4654,7 +4659,7 @@ this, use the <code class="docutils literal notranslate"><span class="pre">to_co
 important. The objects in the <code class="docutils literal notranslate"><span class="pre">'data'</span></code> field are <code class="docutils literal notranslate"><span class="pre">pyarrow.Buffer</span></code> objects,
 which are zero-copy convertible to Python <code class="docutils literal notranslate"><span class="pre">memoryview</span></code> objects:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="nb">memoryview</span><span class="p">(</span><span class="n">components</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="gh">Out[45]: </span><span class="go">&lt;memory at 0x291ab4100&gt;</span>
+<span class="gh">Out[45]: </span><span class="go">&lt;memory at 0x28e896f40&gt;</span>
 </pre></div>
 </div>
 <p>A memoryview can be converted back to a Arrow <code class="docutils literal notranslate"><span class="pre">Buffer</span></code> with
@@ -4670,26 +4675,26 @@ which are zero-copy convertible to Python <code class="docutils literal notransl
 
 <span class="gp">In [49]: </span><span class="n">restored_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gh">Out[49]: </span><span class="go"></span>
-<span class="go">array([[-0.48828959,  0.23595525, -0.38420387,  0.21817247, -1.22487222,</span>
-<span class="go">        -0.59326502,  1.07623919, -0.52300652, -0.57073611,  0.79340546],</span>
-<span class="go">       [ 0.89652035,  1.971807  , -0.81215734, -0.33500847,  1.99185674,</span>
-<span class="go">        -2.02800231,  1.05228908, -0.49684694,  0.43808944,  0.28970542],</span>
-<span class="go">       [ 0.93180135,  0.32134734, -1.18340306,  0.17508275, -0.77523472,</span>
-<span class="go">         0.46789794,  1.24301876,  0.50742472,  1.32315981,  1.825797  ],</span>
-<span class="go">       [-0.35354708,  0.83842437,  0.38178072, -0.58497323,  1.63786845,</span>
-<span class="go">         0.30117875, -0.32897183,  2.03872474,  0.36751005,  0.05218769],</span>
-<span class="go">       [-0.12593107,  1.39071491,  1.3331389 , -0.89758358, -1.73935953,</span>
-<span class="go">        -1.15043161, -1.80025812, -0.36450484,  0.61956898,  0.38954448],</span>
-<span class="go">       [-0.65235661,  1.32901602, -1.47683378,  0.18872277, -0.12324346,</span>
-<span class="go">         0.13234756, -0.63691398, -1.03639899,  1.22192346,  1.60943925],</span>
-<span class="go">       [-0.53511924,  0.79823938,  1.2182439 , -0.31746636, -0.12757179,</span>
-<span class="go">        -0.75224405, -2.99998508, -1.11307771,  0.10022426,  1.11846343],</span>
-<span class="go">       [-0.17589863,  1.06114064,  0.32707284,  2.08389462, -0.18289511,</span>
-<span class="go">         0.92820481,  1.2716274 ,  1.50181336,  0.17925527, -0.42161664],</span>
-<span class="go">       [-1.44318127,  0.58531043, -0.39246787,  0.3012866 , -0.4356569 ,</span>
-<span class="go">        -0.44088082, -0.32372613,  0.03158681,  1.04283908,  1.71562996],</span>
-<span class="go">       [ 0.9294285 , -1.70864814,  1.04601971, -1.56620258,  0.36310679,</span>
-<span class="go">         0.31679424, -0.52395889, -0.54009579, -0.15767739,  0.03411551]])</span>
+<span class="go">array([[ 0.56999799, -0.71223575,  0.11130707,  0.00756526, -0.2904036 ,</span>
+<span class="go">         1.10303748,  0.83686242,  1.47064455, -0.75647103,  1.4167868 ],</span>
+<span class="go">       [ 1.08621898,  1.71844604,  0.83488673, -1.01448753, -0.25767011,</span>
+<span class="go">         0.16933061, -0.57031362,  0.5715136 , -1.28245348,  0.8480375 ],</span>
+<span class="go">       [-0.27922405,  0.90987016, -0.37757515,  0.59261089,  1.07036708,</span>
+<span class="go">         1.21685713,  2.03315202, -0.33424968,  0.67208951, -0.4873054 ],</span>
+<span class="go">       [-1.15225697, -0.66405025,  1.12371733, -0.64579808,  1.4030012 ,</span>
+<span class="go">        -0.39544933, -0.47619273, -0.88724826, -0.93496758,  0.67413427],</span>
+<span class="go">       [-1.34449087,  1.64338734, -1.9760871 ,  0.94123408, -0.28322949,</span>
+<span class="go">        -0.15015233, -1.02015776, -1.29348673,  0.72442156, -1.05241393],</span>
+<span class="go">       [ 0.71312991, -1.24191514,  1.16442679, -0.33203403,  1.06865774,</span>
+<span class="go">         1.35186236, -0.24391175,  1.11499491, -1.08473752,  0.15021334],</span>
+<span class="go">       [-1.45287807,  0.26598118,  1.92649248, -0.25930247,  0.11909295,</span>
+<span class="go">        -0.78863221,  2.268629  , -0.90222403, -0.97937986,  0.42530255],</span>
+<span class="go">       [-0.07147104, -0.56270745, -0.41983842,  0.19466897,  1.28610086,</span>
+<span class="go">        -0.74981102,  0.61833577, -1.13872308,  0.29008392,  2.49499195],</span>
+<span class="go">       [ 0.59931887, -2.09413367, -0.65313058, -1.36619851,  0.17338971,</span>
+<span class="go">        -0.22201337,  1.32826254,  0.58783826, -1.73179714, -0.89260996],</span>
+<span class="go">       [-0.78201881, -0.42121601, -0.19399173,  0.42838183, -0.55957303,</span>
+<span class="go">        -1.01884117,  2.03519494,  1.07926173, -0.78044691,  0.78532058]])</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">deserialize_components</span></code> is also available as a method on
